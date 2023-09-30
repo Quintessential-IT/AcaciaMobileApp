@@ -1,0 +1,7 @@
+{
+  "name": "AcaciaApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
