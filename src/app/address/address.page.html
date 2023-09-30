@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Address</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Address</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-segment [(ngModel)]="link">
+    <ion-segment-button routerLink="/tabs/personal"  value="personal">
+      <ion-label>Personal Details</ion-label>
+    </ion-segment-button>
+    <ion-segment-button routerLink="/tabs/address" value="address">
+      <ion-label>Address</ion-label>
+    </ion-segment-button>
+    <ion-segment-button routerLink="/tabs/password" value="password">
+      <ion-label>Reset Password</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+
+<h5 class="ms-3 my-2">Delivery Address</h5>
+<form class="row" [formGroup]="addressForm" (ngSubmit)="updateUsersAddress()">
+    <div class="form-group col-6">
+        <app-text-input [label]="'Street Address'" [formControl]="addressForm.controls['streetAddress']"></app-text-input>
+        <app-text-input [label]="'Complex Name'" [formControl]="addressForm.controls['complexName']"></app-text-input>
+        <app-text-input [label]="'Suburb'" [formControl]="addressForm.controls['suburb']"></app-text-input>
+        <app-text-input [label]="'City'" [formControl]="addressForm.controls['city']"></app-text-input>
+        <app-text-input [type]="'number'" [label]="'Postal Code'" [formControl]="addressForm.controls['postalCode']"></app-text-input>
+        <label for="floatingInput">Province</label>
+        <select class="form-select mb-4" (change)="onProvinceSelected($event)" formControlName="province">
+            <option *ngFor="let province of provinceList" [value]="province.value"> 
+                {{province.name}}
+            </option>
+        </select>
+    </div>
+    <div>
+        <button [disabled]="!addressForm.valid" class="btn btn-primary" type="submit">Submit</button>
+    </div>
+</form>
+
+</ion-content>
+      
+

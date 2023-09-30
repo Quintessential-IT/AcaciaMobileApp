@@ -1,0 +1,89 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>PersonalDetails</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">PersonalDetails</ion-title>
+    </ion-toolbar>
+  </ion-header>
+</ion-content>
+
+
+<h5 class="my-2">Personal Details</h5>
+<form class="row" [formGroup]="DetailsForm" *ngIf="accountService.currentUser$ | async as user" (ngSubmit)="updateUserDetails()">
+    <div class="form-group col-6">
+        <ng-container *ngIf="user != null">
+            <img class="form-control mb-2 p-0" src="{{user.profilePicture}}" style="max-height: 150px; width: 150px; object-fit: cover;">
+        </ng-container>
+        <app-text-input [label]="'Display Name'" [formControl]="DetailsForm.controls['displayName']"></app-text-input>
+        <app-text-input [label]="'Email'" type="email" [formControl]="DetailsForm.controls['email']"></app-text-input>
+        <label for="floatingInput">Profile Picture</label>
+        <app-text-input [accept]="'image/*'" type="file" (change)="uploadFile($event)" [formControl]="DetailsForm.controls['profilePicture']" ></app-text-input>
+    </div>
+    <ul class="text-danger list-unstyled my-2" *ngIf="errors">
+        <li *ngFor="let error of errors">
+            {{error}}
+        </li>
+    </ul>
+    <div>
+        <button [disabled]="DetailsForm.invalid" class="btn btn-primary my-2" type="submit">Update</button>
+    </div>
+</form> -->
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>PersonalDetails</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">PersonalDetails</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- ion-segment for tab selection -->
+  <ion-segment [(ngModel)]="link">
+    <ion-segment-button routerLink="/tabs/personal" value="personal" >
+      <ion-label>Personal Details</ion-label>
+    </ion-segment-button>
+    <ion-segment-button routerLink="/tabs/address" value="address">
+      <ion-label>Address</ion-label>
+    </ion-segment-button>
+    <ion-segment-button routerLink="/tabs/password" value="password">
+      <ion-label>Reset Password</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  
+
+  <h5 class="my-2">Personal Details</h5>
+  <form class="row" [formGroup]="DetailsForm" *ngIf="accountService.currentUser$ | async as user" (ngSubmit)="updateUserDetails()">
+    <div class="form-group col-6">
+      <ng-container *ngIf="user != null">
+        <img class="form-control mb-2 p-0" src="{{user.profilePicture}}" style="max-height: 150px; width: 150px; object-fit: cover;">
+      </ng-container>
+      <app-text-input [label]="'Display Name'" [formControl]="DetailsForm.controls['displayName']"></app-text-input>
+      <app-text-input [label]="'Email'" type="email" [formControl]="DetailsForm.controls['email']"></app-text-input>
+      <label for="floatingInput">Profile Picture</label>
+      <app-text-input [accept]="'image/*'" type="file" (change)="uploadFile($event)" [formControl]="DetailsForm.controls['profilePicture']"></app-text-input>
+    </div>
+    <ul class="text-danger list-unstyled my-2" *ngIf="errors">
+      <li *ngFor="let error of errors">
+        {{error}}
+      </li>
+    </ul>
+    <div>
+      <button [disabled]="DetailsForm.invalid" class="btn btn-primary my-2" type="submit">Update</button>
+    </div>
+  </form>
+
+</ion-content>
+
+
+
+
+

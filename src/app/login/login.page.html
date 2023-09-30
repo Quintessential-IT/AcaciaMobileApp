@@ -1,0 +1,62 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Login</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="container" id="container" style="margin-top: 100px;">
+    <div class="form-container log-in-container">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="text-center mb-4">
+          <br />
+          <br />
+          <br />
+          <h1>Login</h1>
+        </div>
+        <app-text-input [formControl]="loginForm.controls['email']" [label]="'Email Address'"></app-text-input>
+        <app-text-input [formControl]="loginForm.controls['password']" [type]="'password'" [label]="'Password'"></app-text-input>
+        <p><a (click)="openForgotPasswordModal()" style="text-decoration: underline;">Forgot Password?</a></p>
+        <ion-button [disabled]="loginForm.invalid" expand="full" type="submit">Sign In</ion-button>
+      </form>
+    </div>
+    <div class="overlay-container">
+      <img src="https://assets.website-files.com/5f4403514f0915cea7c6f0a1/602fcb284b4bc5201989a550_sample-box4.jpg" alt="Login image" width="500" height="600">
+    </div>
+  </div>
+
+<!-- Forgot Password Modal -->
+<ion-modal
+  [isOpen]="showForgotPasswordModal"
+  (ionDidDismiss)="showForgotPasswordModal = false"
+  id="forgot-password-modal"
+  [showBackdrop]="true"
+  [animated]="true"
+>
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Forgot Password</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="closeForgotPasswordModal()">
+          <ion-icon slot="icon-only" name="close"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <form [formGroup]="forgotPasswordForm" (ngSubmit)="forgotPassword()">
+      <ion-item>
+        <ion-label position="floating">Email Address</ion-label>
+        <ion-input formControlName="email" type="email"></ion-input>
+      </ion-item>
+      <ion-button [disabled]="forgotPasswordForm.invalid" expand="full" type="submit">Submit</ion-button>
+    </form>
+  </ion-content>
+</ion-modal>
