@@ -140,22 +140,18 @@
       </div>
     </div>
     <!-- End Search Bar -->
+    <ion-content id="products">
+      <!-- Product List -->
+      <ion-card *ngFor="let product of products">
+        <!-- Product Image -->
+        <ion-thumbnail slot="start">
+          <img src ="{{ product.pictureUrl }}" />
+        </ion-thumbnail>
+        <ion-card-header>
+          <ion-card-title>{{ product.name }}</ion-card-title>
+          <ion-card-subtitle>{{ product.price | currency: 'R' }}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
   
-    <!-- Product List -->
-    <div class="table-responsive">
-      <table class="table">
-        <thead class="text-uppercase">
-          <tr>
-            <th><div class="py-2">Product</div></th>
-            <th><div class="py-2">Price</div></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let product of products">
-            <td class="align-middle"><strong>{{ product.name }}</strong></td>
-            <td class="align-middle"><strong>{{ product.price | currency: 'R' }}</strong></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </ion-content>
+   
+    
