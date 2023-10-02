@@ -1,6 +1,6 @@
 ion-toolbar {
     --ion-background-color: #000; /* Set the toolbar background color to black */
-    --ion-color: #fff; /* Set the toolbar font color to white */
+    --ion-color: #ffffff; /* Set the toolbar font color to white */
     font-weight: bold; /* Make the toolbar font bold */
   }
 
@@ -31,7 +31,7 @@ ion-card {
   
   /* Style the button with grey background and white text */
   ion-button {
-    --background: grey;
+    --background: #808080;
     --color: white; /* White text color for the button */
     font-weight: bold; /* Bold button text */
     border-radius: 5px; /* Rounded button corners */

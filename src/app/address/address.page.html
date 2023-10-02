@@ -12,7 +12,7 @@
   </ion-header>
 
   <ion-segment [(ngModel)]="link">
-    <ion-segment-button routerLink="/tabs/personal"  value="personal">
+    <ion-segment-button routerLink="/tabs/personal" value="personal">
       <ion-label>Personal Details</ion-label>
     </ion-segment-button>
     <ion-segment-button routerLink="/tabs/address" value="address">
@@ -23,27 +23,100 @@
     </ion-segment-button>
   </ion-segment>
 
+  <ion-card class="ms-3 my-2">
+    <ion-card-content>
+      <h5>Delivery Address</h5>
 
-<h5 class="ms-3 my-2">Delivery Address</h5>
-<form class="row" [formGroup]="addressForm" (ngSubmit)="updateUsersAddress()">
-    <div class="form-group col-6">
-        <app-text-input [label]="'Street Address'" [formControl]="addressForm.controls['streetAddress']"></app-text-input>
-        <app-text-input [label]="'Complex Name'" [formControl]="addressForm.controls['complexName']"></app-text-input>
-        <app-text-input [label]="'Suburb'" [formControl]="addressForm.controls['suburb']"></app-text-input>
-        <app-text-input [label]="'City'" [formControl]="addressForm.controls['city']"></app-text-input>
-        <app-text-input [type]="'number'" [label]="'Postal Code'" [formControl]="addressForm.controls['postalCode']"></app-text-input>
-        <label for="floatingInput">Province</label>
-        <select class="form-select mb-4" (change)="onProvinceSelected($event)" formControlName="province">
-            <option *ngFor="let province of provinceList" [value]="province.value"> 
-                {{province.name}}
-            </option>
-        </select>
-    </div>
-    <div>
-        <button [disabled]="!addressForm.valid" class="btn btn-primary" type="submit">Submit</button>
-    </div>
-</form>
+      <form [formGroup]="addressForm" (ngSubmit)="updateUsersAddress()">
+        <!-- Email Input with Error Message -->
+        <ion-item class="input-item">
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" formControlName="email"></ion-input>
+        </ion-item>
+        <ion-text *ngIf="addressForm.get('email')?.hasError('required') && (addressForm.get('email')?.touched !== null && addressForm.get('email')?.touched)" color="danger">
+          Email is required.
+        </ion-text>
+        <ion-text *ngIf="addressForm.get('email')?.hasError('email') && (addressForm.get('email')?.touched !== null && addressForm.get('email')?.touched)" color="danger">
+          Invalid email format.
+        </ion-text>
+<br>
+        <!-- Street Address Input with Error Message -->
+        <ion-item class="input-item">
+          <ion-label position="floating">Street Address</ion-label>
+          <ion-input type="text" formControlName="streetAddress"></ion-input>
+        </ion-item>
+        <ion-text *ngIf="addressForm.get('streetAddress')?.hasError('required') && (addressForm.get('streetAddress')?.touched !== null && addressForm.get('streetAddress')?.touched)" color="danger">
+          Street Address is required.
+        </ion-text>
+        <br>
+        <!-- Complex Name Input with Error Message -->
+        <ion-item class="input-item">
+          <ion-label position="floating">Complex Name</ion-label>
+          <ion-input type="text" formControlName="complexName"></ion-input>
+        </ion-item>
+        <ion-text *ngIf="addressForm.get('complexName')?.hasError('required') && (addressForm.get('complexName')?.touched !== null && addressForm.get('complexName')?.touched)" color="danger">
+          Complex name is required.
+        </ion-text>
+        <br>
+        <!-- Suburb Input with Error Message -->
+        <ion-item class="input-item">
+          <ion-label position="floating">Suburb</ion-label>
+          <ion-input type="text" formControlName="suburb"></ion-input>
+        </ion-item>
+        <ion-text *ngIf="addressForm.get('suburb')?.hasError('required') && (addressForm.get('suburb')?.touched !== null && addressForm.get('suburb')?.touched)" color="danger">
+          Suburb is required.
+        </ion-text>
+        <br>
+        <!-- City Input with Error Message -->
+        <ion-item class="input-item">
+          <ion-label position="floating">City</ion-label>
+          <ion-input type="text" formControlName="city"></ion-input>
+        </ion-item>
+        <ion-text *ngIf="addressForm.get('city')?.hasError('required') && (addressForm.get('city')?.touched !== null && addressForm.get('city')?.touched)" color="danger">
+          City is required.
+        </ion-text>
+        <br>
+        <!-- Postal Code Input with Error Message -->
+        <ion-item class="input-item">
+          <ion-label position="floating">Postal Code</ion-label>
+          <ion-input type="number" formControlName="postalCode"></ion-input>
+        </ion-item>
+        <ion-text *ngIf="addressForm.get('postalCode')?.hasError('required') && (addressForm.get('postalCode')?.touched !== null && addressForm.get('postalCode')?.touched)" color="danger">
+          Postal Code is required.
+        </ion-text>
+        <ion-text *ngIf="addressForm.get('postalCode')?.hasError('min') && (addressForm.get('postalCode')?.touched !== null && addressForm.get('postalCode')?.touched)" color="danger">
+          Postal Code must be greater than or equal to 1.
+        </ion-text>
+        <ion-text *ngIf="addressForm.get('postalCode')?.hasError('minlength') && (addressForm.get('postalCode')?.touched !== null && addressForm.get('postalCode')?.touched)" color="danger">
+          Postal Code must have at least 4 digits.
+        </ion-text>
+        <ion-text *ngIf="addressForm.get('postalCode')?.hasError('maxlength') && (addressForm.get('postalCode')?.touched !== null && addressForm.get('postalCode')?.touched)" color="danger">
+          Postal Code must have at most 4 digits.
+        </ion-text>
+        <br>
+        <!-- Province Input -->
+        <ion-item class="input-item">
+          <ion-label>Province</ion-label>
+          <ion-select (ionChange)="onProvinceSelected($event)" formControlName="province">
+            <ion-select-option *ngFor="let province of provinceList" [value]="province.value">
+              {{ province.name }}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-text *ngIf="addressForm.get('province')?.hasError('required') && (addressForm.get('province')?.touched !== null && addressForm.get('province')?.touched)" color="danger">
+          Province is required.
+        </ion-text>
 
+        <ion-button
+          [disabled]="!addressForm.valid"
+          expand="full"
+          shape="round"
+          type="submit"
+          class="small-button"
+        >
+          Submit
+        </ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
-      
-
