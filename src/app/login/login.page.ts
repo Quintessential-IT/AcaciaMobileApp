@@ -10,6 +10,7 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+
   constructor(private accountService: AccountService, private router: Router, private activatedRoute: ActivatedRoute, private toastController: ToastController) { 
     this.returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'] || '/tabs/products';
   }
