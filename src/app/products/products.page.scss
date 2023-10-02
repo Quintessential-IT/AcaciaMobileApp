@@ -1,3 +1,9 @@
+ion-header {
+    --ion-background-color: #333333; /* Set the toolbar background color to dark blue */
+    --ion-text-color: white; /* White text color for the toolbar */
+    font-weight: bold; /* Make the toolbar font bold */
+  }
+
 #products {
     .card-img {
         background-size: cover;
