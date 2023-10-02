@@ -15,8 +15,6 @@
 
   <ion-card class="ms-3 my-2">
     <ion-card-content>
-      <h5>Login</h5>
-
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <!-- Email Input with Error Message -->
         <ion-item class="input-item">
@@ -42,7 +40,7 @@
         <br>
 
         <!-- Forgot Password Link -->
-        <p><a (click)="openForgotPasswordModal()" style="text-decoration: underline;">Forgot Password?</a></p>
+        <!-- <p><a (click)="openForgotPasswordModal()" style="text-decoration: underline;">Forgot Password?</a></p> -->
 
         <!-- Sign In Button -->
         <ion-button [disabled]="loginForm.invalid" expand="full" type="submit">Sign In</ion-button>

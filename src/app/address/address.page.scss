@@ -1,12 +1,12 @@
 /* Set global background color and font color */
 ion-content {
   --ion-background-color: #cfd1d3; /* Light gray background */
-  --ion-text-color: #001844; /* Dark blue text color */
+  --ion-text-color: #000000; /* Dark blue text color */
 }
 
 /* Style the header */
 ion-header {
-  --ion-background-color: #001844; /* Set the toolbar background color to dark blue */
+  --ion-background-color: #333333; /* Set the toolbar background color to dark blue */
   --ion-text-color: white; /* White text color for the toolbar */
   font-weight: bold; /* Make the toolbar font bold */
 }
@@ -39,7 +39,7 @@ ion-card-content {
 
 /* Style the buttons */
 ion-button {
-  --background: #cd1543; /* Set the button background color to red */
+  --background: #A9927D; /* Set the button background color to red */
   --color: white; /* White text color for the button */
   font-weight: bold; /* Bold button text */
   border-radius: 5px; /* Rounded button corners */

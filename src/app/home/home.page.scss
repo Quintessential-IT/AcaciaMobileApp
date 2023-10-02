@@ -1,15 +1,20 @@
 ion-toolbar {
-    --ion-background-color: #000; /* Set the toolbar background color to black */
+    --ion-background-color: #333333; /* Set the toolbar background color to black */
     --ion-color: #ffffff; /* Set the toolbar font color to white */
     font-weight: bold; /* Make the toolbar font bold */
   }
 
+  ion-header {
+    --ion-background-color: #333333; /* Set the toolbar background color to dark blue */
+    --ion-text-color: white; /* White text color for the toolbar */
+    font-weight: bold; /* Make the toolbar font bold */
+  }
+
 ion-card {
-    background-color: transparent; /* Transparent cards */
+    background-color: #cfd1d3; /* Transparent cards */
     border: none; /* Remove card borders */
     border-radius: 15px;
     padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), inset 0 0 100px rgba(0, 0, 0, 0.3); /* Blurred effect */
   }
   
   ion-card-header {

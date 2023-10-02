@@ -12,7 +12,7 @@
   </ion-header>
 
   <!-- ion-segment for tab selection -->
-  <ion-segment [(ngModel)]="link" color="primary">
+  <ion-segment [(ngModel)]="link">
     <ion-segment-button routerLink="/tabs/personal" value="personal">
       <ion-label>Personal Details</ion-label>
     </ion-segment-button>
@@ -42,6 +42,7 @@
           <ion-label position="floating">Display Name</ion-label>
           <ion-input type="text" formControlName="displayName"></ion-input>
         </ion-item>
+        <br>
         <ion-text *ngIf="DetailsForm?.get('displayName')?.invalid && DetailsForm?.get('displayName')?.touched" color="danger">
           <ng-container *ngIf="DetailsForm?.get('displayName')?.hasError('required')">
             Display Name is required.
@@ -53,7 +54,6 @@
             Display Name must have at most 20 characters.
           </ng-container>
         </ion-text>
-      
         <ion-item [class.is-invalid]="DetailsForm?.get('email')?.invalid && DetailsForm?.get('email')?.touched">
           <ion-label position="floating">Email</ion-label>
           <ion-input type="email" formControlName="email"></ion-input>
@@ -66,22 +66,20 @@
             Invalid email format.
           </ng-container>
         </ion-text>
-
+        <br>
         <ion-item>
           <ion-label position="floating">Profile Picture</ion-label>
           <ion-input type="file" (change)="uploadFile($event)" formControlName="profilePicture"></ion-input>
         </ion-item>
+        <ion-list *ngIf="errors">
+          <ion-item *ngFor="let error of errors" color="danger">
+            {{ error }}
+          </ion-item>
+        </ion-list>
         
+        <ion-button [disabled]="DetailsForm?.invalid" expand="full" shape="round" type="submit">Update</ion-button>
         
       </form>
-
-      <ion-list *ngIf="errors">
-        <ion-item *ngFor="let error of errors" color="danger">
-          {{ error }}
-        </ion-item>
-      </ion-list>
-      
-      <ion-button [disabled]="DetailsForm?.invalid" expand="full" shape="round" type="submit" color="primary">Update</ion-button>
     </ion-card-content>
   </ion-card>
 </ion-content>

@@ -28,18 +28,6 @@
       <h5>Delivery Address</h5>
 
       <form [formGroup]="addressForm" (ngSubmit)="updateUsersAddress()">
-        <!-- Email Input with Error Message -->
-        <ion-item class="input-item">
-          <ion-label position="floating">Email</ion-label>
-          <ion-input type="email" formControlName="email"></ion-input>
-        </ion-item>
-        <ion-text *ngIf="addressForm.get('email')?.hasError('required') && (addressForm.get('email')?.touched !== null && addressForm.get('email')?.touched)" color="danger">
-          Email is required.
-        </ion-text>
-        <ion-text *ngIf="addressForm.get('email')?.hasError('email') && (addressForm.get('email')?.touched !== null && addressForm.get('email')?.touched)" color="danger">
-          Invalid email format.
-        </ion-text>
-<br>
         <!-- Street Address Input with Error Message -->
         <ion-item class="input-item">
           <ion-label position="floating">Street Address</ion-label>

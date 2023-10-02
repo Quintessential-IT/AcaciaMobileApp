@@ -52,9 +52,13 @@ export class AddressPage implements OnInit {
         this.showToast('Address updated', 'success')
         this.addressForm.reset(this.addressForm.value);
         this.router.navigateByUrl('/account');
+      },
+      error: () => {
+        this.showToast('Address could not be updated', 'danger')
       }
     })
   }
+  
 
   onProvinceSelected(event: any){
     this.addressForm.value.province = event.target.value;

@@ -38,9 +38,13 @@ export class ResetPasswordPage implements OnInit {
         this.showToast('Password updated', 'success')
         this.passwordForm.reset();
       },
-      error: error => this.errors = error.errors
+      error: error => {
+        this.showToast('Password Chnage Failed', 'danger'),
+        this.errors = error.errors
+      }
     })
   }
+
 
   async showToast(message: string, color: string, duration = 2000) {
     const toast = await this.toastController.create({
