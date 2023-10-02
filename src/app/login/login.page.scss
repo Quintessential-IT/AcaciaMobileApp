@@ -1,19 +1,27 @@
-ion-header {
-    --ion-background-color: black; /* Set the toolbar background color to black */
-    --ion-color: white; /* Set the toolbar font color to white */
+/* Set global background color and font color */
+ion-content {
+    --ion-background-color: #cfd1d3; /* Light gray background */
+    --ion-text-color: #001844; /* Dark blue text color */
+  }
+  
+  /* Style the header */
+  ion-header {
+    --ion-background-color: #001844; /* Set the toolbar background color to dark blue */
+    --ion-text-color: white; /* White text color for the toolbar */
     font-weight: bold; /* Make the toolbar font bold */
   }
   
+  /* Style the card */
   ion-card {
-    background-color: transparent; /* Transparent cards */
-    border: none; /* Remove card borders */
-    border-radius: 15px;
+    background-color: #ffffff; /* White background for the card */
+    border-radius: 10px; /* Rounded card corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
     padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), inset 0 0 100px rgba(0, 0, 0, 0.3); /* Blurred effect */
   }
   
+  /* Style the card header */
   ion-card-header {
-    background-color: #808080; /* Set the card header background color to #808080 */
+    background-color: #001844; /* Set the card header background color to dark blue */
     color: white; /* White text color for the header */
     text-align: center; /* Centered header text */
     padding: 15px; /* Padding for the header */
@@ -21,22 +29,38 @@ ion-header {
     border-top-right-radius: 10px; /* Round the top-right header corner */
   }
   
+  /* Style the card content */
   ion-card-content {
     padding: 20px; /* Padding for the content */
-    color: black; /* Black text color for the content */
     font-size: 16px; /* Font size for content text */
     line-height: 1.5; /* Line height for readability */
+    color: #001844; /* Dark blue text color for the content */
   }
   
-  /* Style the button with #808080 background and white text */
+  /* Style the buttons */
   ion-button {
-    --background: #808080; /* Set the button background color to #808080 */
+    --background: #cd1543; /* Set the button background color to red */
     --color: white; /* White text color for the button */
     font-weight: bold; /* Bold button text */
     border-radius: 5px; /* Rounded button corners */
     margin-top: 15px; /* Spacing below the content */
   }
   
-  ion-img {
-    width: 100%; /* Make the image full-width within the card */
+  /* Style ion-input fields */
+  ion-input {
+    --border-color: #869ec3; /* Set the border color to light blue */
+    --border-radius: 5px; /* Slightly rounded input */
+  }
+  
+  /* Style ion-text for error messages */
+  ion-text {
+    font-size: 14px; /* Adjust the font size for error messages */
+    margin-top: 5px; /* Spacing above error messages */
+    color: #ff0000; /* Red error message color */
+  }
+  
+  /* Style ion-select for a more professional look */
+  ion-select {
+    --border-color: #869ec3; /* Set the border color to light blue */
+    --border-radius: 5px; /* Slightly rounded select */
   }
