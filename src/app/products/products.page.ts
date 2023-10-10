@@ -33,6 +33,11 @@ export class ProductsPage implements OnInit {
   ];
   totalCount = 0;
 
+  // View mode options
+  oneColumn: boolean = false;
+  grid: boolean = true;
+  list: boolean = false;
+
   constructor(private productService: ProductsService, private router: Router) {}
 
   ngOnInit(): void {
@@ -67,6 +72,13 @@ export class ProductsPage implements OnInit {
     });
   }
 
+  // Function to switch between view modes
+  // switchViewMode(mode: 'grid' | 'list' | 'oneColumn') {
+  //   this.oneColumn = mode === 'oneColumn';
+  //   this.grid = mode === 'grid';
+  //   this.list = mode === 'list';
+  // }
+
   onCategorySelected(event: any) {
     this.shopParams.categoryId = event.target.value;
     this.shopParams.pageNumber = 1;
@@ -100,5 +112,24 @@ export class ProductsPage implements OnInit {
   onReset() {
     this.shopParams = new ShopParams();
     this.getProducts();
+  }
+
+  showOneColumn() {
+    this.oneColumn = true;
+    this.grid = false;
+    this.list = false;
+    console.log('One Column View');
+  }
+  
+  showGrid() {
+    this.oneColumn = false;
+    this.grid = true;
+    this.list = false;
+  }
+  
+  showList() {
+    this.oneColumn = false;
+    this.grid = false;
+    this.list = true;
   }
 }

@@ -39,25 +39,74 @@
       </ion-select>
     </ion-col>
   </ion-row>
-  
-  
-  
-  
+
+  <!-- Product View Options -->
+  <div class="ion-text-end view-options">
+    <!-- One Column Option -->
+    <button [ngClass]="oneColumn ? 'active-button' : 'inactive-button'" (click)="showOneColumn()">
+      <ion-icon slot="icon-only" name="square"></ion-icon>
+    </button>
+
+    <!-- Grid Option -->
+    <button [ngClass]="grid ? 'active-button' : 'inactive-button'" (click)="showGrid()">
+      <ion-icon slot="icon-only" name="grid"></ion-icon>
+    </button>
+
+    <!-- List View Option -->
+    <button [ngClass]="list ? 'active-button' : 'inactive-button'" (click)="showList()">
+      <ion-icon slot="icon-only" name="list"></ion-icon>
+    </button>
+  </div>
 
   <!-- Product List -->
-  <ion-list>
-    <ion-card *ngFor="let product of products">
+  <!-- One Column View Contents -->
+    <ion-grid id="oneColumn" *ngIf="oneColumn">
+      <ion-row>
+        <ion-col size="12" *ngFor="let product of products">
+          <ion-card class="ion-no-margin">
+            <!-- Product Image -->
+              <ion-img [src]="product.pictureUrl"></ion-img>
+            <ion-card-header>
+              <ion-card-title>{{ product.name }}</ion-card-title>
+              <ion-card-subtitle>{{ product.price | currency: 'R' }}</ion-card-subtitle>
+              <!-- Add more product details here -->
+            </ion-card-header>
+            <!-- Add buttons or actions for the product here -->
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  <!-- Grid View -->
+  <ion-grid *ngIf="grid">
+    <ion-row>
+      <ion-col sizeLg="4" sizeMd="4" sizeXs="6" *ngFor="let product of products">
+        <ion-card>
+          <!-- Product Image -->
+          <ion-img [src]="product.pictureUrl"></ion-img>
+          <ion-card-header>
+            <ion-card-title>{{ product.name }}</ion-card-title>
+            <ion-card-subtitle>{{ product.price | currency: 'R' }}</ion-card-subtitle>
+            <!-- Add more product details here -->
+          </ion-card-header>
+          <!-- Add buttons or actions for the product here -->
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- List View -->
+  <ion-list *ngIf="list">
+    <ion-item *ngFor="let product of products">
       <!-- Product Image -->
       <ion-thumbnail slot="start">
         <ion-img [src]="product.pictureUrl"></ion-img>
       </ion-thumbnail>
-      <ion-card-header>
-        <ion-card-title>{{ product.name }}</ion-card-title>
-        <ion-card-subtitle>{{ product.price | currency: 'R' }}</ion-card-subtitle>
-      </ion-card-header>
-      <ion-card-content>
-        <!-- Add product content here -->
-      </ion-card-content>
-    </ion-card>
+      <ion-label>
+        <h2>{{ product.name }}</h2>
+        <p>{{ product.price | currency: 'R' }}</p>
+        <!-- Add more product details here -->
+      </ion-label>
+      <!-- Add buttons or actions for the product here -->
+    </ion-item>
   </ion-list>
 </ion-content>
