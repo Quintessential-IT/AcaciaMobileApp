@@ -1,0 +1,48 @@
+ion-toolbar {
+    --ion-background-color: #333333; /* Set the toolbar background color to black */
+    --ion-color: #ffffff; /* Set the toolbar font color to white */
+    font-weight: bold; /* Make the toolbar font bold */
+  }
+
+  ion-header {
+    --ion-background-color: #333333; /* Set the toolbar background color to dark blue */
+    --ion-text-color: white; /* White text color for the toolbar */
+    font-weight: bold; /* Make the toolbar font bold */
+  }
+
+ion-card {
+    background-color: #cfd1d3; /* Transparent cards */
+    border: none; /* Remove card borders */
+    border-radius: 15px;
+    padding: 20px;
+  }
+  
+  ion-card-header {
+    background-color: #A9927D; /* Black background for the header */
+    color: white; /* White text color for the header */
+    text-align: center; /* Centered header text */
+    padding: 15px; /* Padding for the header */
+    border-top-left-radius: 10px; /* Round the top-left header corner */
+    border-top-right-radius: 10px; /* Round the top-right header corner */
+  }
+  
+  ion-card-content {
+    padding: 20px; /* Padding for the content */
+    color: black; /* Black text color for the content */
+    font-size: 16px; /* Font size for content text */
+    line-height: 1.5; /* Line height for readability */
+  }
+
+  
+  /* Style the button with grey background and white text */
+  ion-button {
+    --background: #808080;
+    --color: white; /* White text color for the button */
+    font-weight: bold; /* Bold button text */
+    border-radius: 5px; /* Rounded button corners */
+    margin-top: 15px; /* Spacing below the content */
+  }
+
+  ion-img {
+    width: 100%; /* Make the image full-width within the card */
+  }

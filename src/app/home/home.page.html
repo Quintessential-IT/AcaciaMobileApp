@@ -1,15 +1,50 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>home</ion-title>
+  <ion-toolbar style="background-color: #333333; color: white">
+    <ion-title style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">
+      Welcome to Acacia.
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">home</ion-title>
-    </ion-toolbar>
-  </ion-header>
-</ion-content>
+<ion-content class="ion-align-items-center">
+  <ion-card>
+    <ion-img src="https://www.continental-travels.com/wp-content/uploads/2016/04/Elephant-at-Dawn-Under-Acacia-Tree.jpg"></ion-img>
+    <br>
+    <ion-card-header>
+      About Acacia
+    </ion-card-header>
+    <ion-card-content>
+      Acacia is your complete e-commerce and inventory management solution. Streamline operations, track sales, and optimize your business with our powerful tools.
+    </ion-card-content>
+  </ion-card>
 
+
+    <ion-card>
+      <ion-card-header>
+        Donate to ERP
+      </ion-card-header>
+      <ion-card-content>
+        Elephants, Rhinos & People (ERP.ngo) was founded to preserve and protect Southern Africa’s wild elephants and rhinos through a strategy that is based on rural poverty alleviation. <br>
+        <a href="https://www.flipcause.com/secure/cause_pdetails/MzI5OTA=/"> Donate Now </a>
+      </ion-card-content>
+    </ion-card>
+    
+  <ion-card>
+    <ion-card-header>
+      Explore the App
+    </ion-card-header>
+    <ion-card-content>
+      - Login On The Go<br>
+      - View Your Account <br>
+      - View Our Product Range <br>
+    </ion-card-content>
+  </ion-card>
+  <ion-grid class="center-button">
+    <ion-row>
+      <ion-col size="3">
+        <ion-button routerLink="/tabs/products"  style="border-radius: 10px;" expand="full">View Products</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
 
